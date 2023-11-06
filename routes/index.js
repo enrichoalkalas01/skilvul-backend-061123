@@ -1,8 +1,10 @@
 const express = require('express')
 const routes = express.Router()
 
-routes.get('/', (req, res) => {
-    res.send('Welcome to api v1 routes!')
-})
+// Routes
+const UserRoutes = require('./users/index')
+
+routes.get('/', (req, res, next) => { res.send('Welcome to api v1 routes!') })
+routes.use('/auth', UserRoutes)
 
 module.exports = routes

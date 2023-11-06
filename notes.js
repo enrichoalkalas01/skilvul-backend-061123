@@ -1,5 +1,4 @@
 /*
-
     ## Structure Folder Back End ##
     - Public ( File yang dapat diakses oleh user bebas )
     - Views ( Semua file yang berhubungan dengan front end )
@@ -13,4 +12,26 @@
         - Pintu gerbang menuju proses yang ada ( biasa nya masuk ke controllers )
         - Ini sebagai filter ke jalan yang mau dituju
     - Middlewares ( Semua file yang berhubungan dengan proses yang terjadi di belakang layar )
+
+
+    ## Example Step Create Register Account ##
+        == Client Side ==
+            1. Input nama, email, password
+            2. Validasi Password & Email
+            3. Create Packet Data To API
+                - Set URL ( link url)
+                - Set Method ( get / post )
+                - Set Headers ( Content-Type & etc )
+                - Set Data ( body data )
+            4. Send API ( mockapi or etc )
+        
+        == Server Side ==
+            1. Request Masuk Ke Dalam Routes
+            2. 
+
+    ## To Do Backend ##
+    1. Create Folder Structure
+    2. Create Server.js Setup
+    3. Create Routes Setup
+    4. Create Controllers
 */
