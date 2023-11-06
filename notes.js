@@ -34,4 +34,7 @@
     2. Create Server.js Setup
     3. Create Routes Setup
     4. Create Controllers
+    5. Connect Controllers To Routes
+    6. Create Filter With Custom Middlewares
+    7. Process the data in controllers
 */
