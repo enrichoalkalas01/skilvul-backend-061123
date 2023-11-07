@@ -37,4 +37,30 @@
     5. Connect Controllers To Routes
     6. Create Filter With Custom Middlewares
     7. Process the data in controllers
+
+    ## Soal / Latihan ##
+    1. Buatkan API Register & Login ( sederhana )
+    1. Buatkan API Create, Update, Delete, Read Content Article
+    1. Buatkan API Create, Update, Delete, Read User
+    2. Test With FE or Thunder Client or Postman
+    3. Show the results
+
+
+    How To Generate Models Sequelize
+    --  Models adalah tempat untuk menghubungkan antara BE dengan Database
+    --  Migrations adalah tempat untuk membuat kerangka table database
+    --  Membuat models pada sequelize sebenarnya kita membuat models dan juga migration
+        pada database
+    --  Migrate adalah cara untuk menerapkan strukture table yang sudah kita buat kedalam
+        database
+    --  Seed adalah data dummy / example data yang dibuat di backend yang dimana bisa sebagai
+        pengganti data asli ( sebutan nya data example / data contoh )
+
+    npx sequelize-cli model:generate --name Users --attributes username:string,password:string,email:string,firstname:string,lastname:string
+
+    npx sequelize-cli db:migrate
+
+    npx sequelize-cli seed:generate --name Users
+
+    npx sequelize-cli seed:all
 */

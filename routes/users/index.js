@@ -15,4 +15,6 @@ routes.post('/register', [
     AuthMiddleware.bodyValidationRegister
 ], AuthController.Register)
 
+routes.post('/login', AuthController.Login)
+
 module.exports = routes
