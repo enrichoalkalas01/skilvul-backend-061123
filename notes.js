@@ -63,4 +63,27 @@
     npx sequelize-cli seed:generate --name Users
 
     npx sequelize-cli seed:all
+
+    ## Sebelumnya ##
+    1. has create a auth controller ( register & login )
+    2. has create a model & migration sequelize
+    3. has input a data into database
+
+    ## Lanjutan ##
+    1. Create middleware auth ( body validation )
+    2. Input middleware body validation into routes for filter
+    3. Go to register controller and create process register and encrypt the password
+    4. Problem if data exists ? filter data exists and stop created ( register )
+    5. If data is not exists ? create data user and Done Register
+    6. Go to login
+    7. Check cryptr and jsonwebtoken is installed or not, if not just install it
+    8. Get Data Matched from input request
+    9. Descrypt password and matching password input
+    10. If success, create token jwt
+
+
+    ## Next Step ##
+    1. Middleware JWT Verify
+    2. Create filter authorization token detection
+    3. Create filter token check jwt
 */
