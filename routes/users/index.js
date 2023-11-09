@@ -13,7 +13,7 @@ routes.get('/', (req, res, next) => {
 
 routes.post('/register', [
     AuthMiddleware.bodyValidationRegister
-], AuthController.Register)
+], AuthController.RegisterMongo)
 
 routes.post('/login', [
     AuthMiddleware.bodyValidationLogin

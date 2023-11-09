@@ -12,6 +12,9 @@ app.listen(port, function() {
     console.log(`Server is running in port : ${ port }`)
 })
 
+const ConnectionMongoDB = require('./models/mongodb/ConnectionMongoDB')
+ConnectionMongoDB()
+
 // Routes
 const Routes = require('./routes/index')
 app.use('/api/v1', Routes)

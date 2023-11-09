@@ -86,4 +86,11 @@
     1. Middleware JWT Verify
     2. Create filter authorization token detection
     3. Create filter token check jwt
+
+
+    ## Setup Mongo ##
+    1. Create Folder MongoDB pada folder models
+    2. Create File Connection Mongo DB ( berfungsi untuk mengkonekan apps dengan database )
+    3. Create Connection Mongo DB
+    4. Use Connection Mongo DB in server.js
 */
