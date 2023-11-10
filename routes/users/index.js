@@ -17,6 +17,6 @@ routes.post('/register', [
 
 routes.post('/login', [
     AuthMiddleware.bodyValidationLogin
-], AuthController.Login)
+], AuthController.LoginMongo)
 
 module.exports = routes

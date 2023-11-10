@@ -93,4 +93,9 @@
     2. Create File Connection Mongo DB ( berfungsi untuk mengkonekan apps dengan database )
     3. Create Connection Mongo DB
     4. Use Connection Mongo DB in server.js
+
+    - thumbnail
+    - image_1
+    - image_2
+    - Link
 */

@@ -44,7 +44,6 @@ async function Register(req, res, next) {
 }
 
 async function Login(req, res, next) {
-    console.log(req.body.username)
     const getUsers = await UserModels.findOne({
         where: {
             username: req.body.username
@@ -135,8 +134,71 @@ async function RegisterMongo(req, res, next) {
     }
 }
 
+async function LoginMongo(req, res, next) {
+    const { username, password } = req.body
+
+    // Get Users Exist
+    try {
+        let getUser = await UserModelsMongo.aggregate([
+            {
+                $match: {
+                    $or: [
+                        { username: username },
+                        { email: username }
+                    ]
+                }
+            }
+        ])
+
+        if ( getUser.length < 1 ) {
+            res.status(400).send({
+                message: 'Data is not exists!',
+                statusCode: 400
+            })
+        } else {
+            let passwordUser = CryptrNew.decrypt(getUser[0].password)
+
+            if ( req.body.password !== passwordUser ) {
+                res.status(400).send({
+                    message: 'Username or Password is wrong!',
+                    statusCode: 400
+                })
+            } else {
+                let expiredToken = Math.floor(Date.now() / 1000) + (60 * 60)
+                let createAccessToken = JWT.sign({
+                    exp: expiredToken,
+                    data: {
+                        user: getUser[0].username,
+                        email: getUser[0].email,
+                        no: getUser[0].id,
+                    }
+                }, 'secret-no-rumpi')
+    
+                let dataPassingClient = {
+                    access_token: createAccessToken, // access token expired 1 day
+                    refresh_token: createAccessToken, // refresh token expired 1 month
+                    expired_date: expiredToken,
+                    user: getUser[0].username,
+                    id: getUser[0].id,
+                }
+    
+                res.status(200).send({
+                    message: 'Successfull to login user!',
+                    statusText: 'Successfull to login user!',
+                    statusCode: 200,
+                    data: dataPassingClient
+                })
+            }
+        }
+    } catch(error) {
+        console.log(error)
+        res.status(400)
+    }
+}
+
 module.exports = {
     Register,
     Login,
     RegisterMongo,
+    LoginMongo,
 }

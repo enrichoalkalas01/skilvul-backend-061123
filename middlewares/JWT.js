@@ -25,6 +25,7 @@ function verifyToken(req, res, next) {
 function verifyJWTToken(req, res, next) {
     let token = req.tokenVerify
     let tokenVerify = JWT.verify(token, 'secret-no-rumpi')
+
     if ( !tokenVerify ) {
         res.status(401).send({
             message: 'Unauthorized!',
@@ -32,16 +33,7 @@ function verifyJWTToken(req, res, next) {
             statusCode: 401
         })
     } else {
-        console.log(tokenVerify.data)
-        if ( tokenVerify.data.user !== 'lala' ) {
-            res.status(401).send({
-                message: 'Unauthorized!',
-                statusMessage: 'Unauthorized!',
-                statusCode: 401
-            })
-        } else {
-            next()
-        }
+        next()
     }
 }
 
