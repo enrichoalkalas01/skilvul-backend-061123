@@ -98,4 +98,24 @@
     - image_1
     - image_2
     - Link
+
+    ## Cara Menambah Komentar Di Article ##
+    1. Bikin API create komentar
+        - controller komentar
+        - models komentar
+        - table / database komentar
+        - process save each komentar di post ( save by id (page, kategory, post per id article, dll ) )
+        - tampilin komentar by id ( bisa article, bisa page lainya )
+
+    2. Get list komentar nya
+
+    let dataPassingKomentarToDB = {
+        userId: "",
+        pageCategory: "article" / "post" / "product",
+        pageCategoryId: "asd9a4laknd0idsn",
+        komentar: "asldkansdlaksndalsnd",
+        title: "wokwokwowkowk",
+        created_date: "",
+        update_date: "",
+    }
 */

@@ -33,6 +33,7 @@ function verifyJWTToken(req, res, next) {
             statusCode: 401
         })
     } else {
+        req.tokenUser = tokenVerify
         next()
     }
 }

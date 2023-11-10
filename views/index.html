@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <div id="description-article"></div>
+    </section>
+
+    <script>
+        async function getArticleData() {
+            let config = {
+                method: 'get',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            }
+
+            await fetch("http://localhost:7600/api/v1/article", config).then(response => response.json())
+            .then(result => {
+                document.getElementById("description-article").innerHTML = result.data[0].description
+            }).catch(error => {
+                console.log(error)
+            })
+        }
+
+        getArticleData()
+    </script>
+</body>
+</html>
